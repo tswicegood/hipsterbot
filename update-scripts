@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+ls -1 scripts/  | python -c "import sys, json; print json.dumps([a for a in sys.stdin.read().strip().split('\n')], indent=2)" > hubot-scripts.json
+sed -i bak -e 's/ $//g' hubot-scripts.json
+rm hubot-scripts.jsonbak
